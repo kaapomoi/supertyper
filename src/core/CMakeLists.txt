@@ -4,6 +4,10 @@ add_library(core
         src/buffer.cpp
         src/file_parser.cpp
         src/word_shuffler.cpp
+        src/state.cpp
+        src/menu_state.cpp
+        src/game_state.cpp
+        src/scoreboard_state.cpp
     )
 
 target_include_directories(core 
