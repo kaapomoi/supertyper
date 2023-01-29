@@ -44,7 +44,7 @@ void Supertyper::update() noexcept
     float const chars_per_word_average =
         total_characters_in_words / static_cast<float>(m_words.size());
 
-    while (true) {
+    while (c != 27) {
         std::string const word{m_words.back()};
         Buffer const word_buffer{word};
 
