@@ -1,0 +1,3 @@
+[submodule "src/external/cxxcurses"]
+	path = src/external/cxxcurses
+	url = https://github.com/hjaremko/cxxcurses
