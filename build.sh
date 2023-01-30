@@ -13,8 +13,6 @@ function build(){
     echo "Building...";
     make -j
     cd - > /dev/null
-    echo "Copying words.txt to build/"
-    cp words.txt $build_dir
 }
 
 function run(){

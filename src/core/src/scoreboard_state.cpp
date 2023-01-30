@@ -19,7 +19,7 @@ Scoreboard_state::Scoreboard_state(Supertyper& context, std::uint32_t const scor
 
 void Scoreboard_state::run() noexcept
 {
-    m_score_window << cc::format(2)("WPM: {p}", std::to_string(m_score));
+    m_score_window << cc::format(2)("CPM: {p}", std::to_string(m_score));
 
     static_cast<void>(m_score_window.get_char());
     m_context.change_state(std::make_shared<Menu_state>(m_context));

@@ -8,6 +8,8 @@ add_library(core
         src/menu_state.cpp
         src/game_state.cpp
         src/scoreboard_state.cpp
+        src/quit_state.cpp
+        src/file_browser_state.cpp
     )
 
 target_include_directories(core 

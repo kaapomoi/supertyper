@@ -15,21 +15,29 @@ Game_state::Game_state(Supertyper& context) noexcept
     : State{context}
     , m_word_window{cc::widget::window{
           {10, (m_dims.second / 2) - (m_box_width / 2), 10, m_box_width}, cc::terminal::main_win}}
-    , m_type_window{cc::widget::window{{20, m_dims.second / 2 - (m_box_width / 2), 3, m_box_width},
+    , m_type_window{cc::widget::window{{7, m_dims.second / 2 - (m_box_width / 2), 3, m_box_width},
                                        m_word_window}}
 
 {
-    cc::cursor::set_visibility(cc::cursor::visibility::normal);
-    cc::terminal::main_win << cc::format(1)("{wB}", "Super Typer");
-    m_file_parser.parse("words.txt");
-    m_words = m_file_parser.get_lines();
-    m_word_shuffler.shuffle(m_words);
 }
 
 void Game_state::run() noexcept
 {
+    cc::cursor::set_visibility(cc::cursor::visibility::normal);
+    cc::terminal::main_win << cc::format(1)("{wB}", "Super Typer");
+    cc::terminal::main_win << cc::format(2)("{b}", m_context.get_words_file());
+
+    m_file_parser.parse(m_context.get_words_file());
+    m_words = m_file_parser.get_lines();
+    m_word_shuffler.shuffle(m_words);
+
+    // Updates type_window as well.
+    m_word_window.draw();
+
     std::int32_t c{0};
-    m_words.resize(10);
+    if (m_words.size() > 10) {
+        m_words.resize(10);
+    }
 
     std::size_t total_characters_in_words =
         std::accumulate(m_words.cbegin(), m_words.cend(), 0,
@@ -107,7 +115,7 @@ void Game_state::run() noexcept
                     m_time_spent_seconds =
                         std::chrono::duration_cast<std::chrono::seconds>(time_delta).count();
 
-                    m_score = ((m_score * 60) / chars_per_word_average) / m_time_spent_seconds;
+                    m_score = (m_score * 60) / m_time_spent_seconds;
 
                     m_game_started = false;
 
