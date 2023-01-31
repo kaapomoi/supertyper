@@ -5,20 +5,9 @@ A tool for typing practice.
 
 ### Dependencies
 
-CMake
-[CMake Home Page](https://cmake.org/)
+CMake [CMake Home Page](https://cmake.org/)
 
-NCurses
-[ncurses 6.4 direct download](https://invisible-island.net/archives/ncurses/ncurses-6.4.tar.gz)
-
-NCurses installation steps, from [Tmux GitHub Wiki](https://github.com/tmux/tmux/wiki/Installing):
-
-```bash
-tar -zxf ncurses-*.tar.gz
-cd ncurses-*/
-./configure --prefix=$HOME/local --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=$HOME/local/lib/pkgconfig
-make && make install
-```
+NCurses [ncurses tarballs](https://invisible-island.net/archives/ncurses/)
 
 ## Building and running
 
@@ -28,7 +17,7 @@ source ./build.sh; build; run;
 
 Exit the application with ESCAPE.
 
-## Modify the word list
+## Add custom word sets
 
-You can modify the word list by changing the contents of `words.txt` in the project root.
+You can add custom word sets by adding files with the extension `.st` into the `words/` directory. The word set files shall have one word per line, with no whitespaces.
 
