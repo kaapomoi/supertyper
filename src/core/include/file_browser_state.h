@@ -15,7 +15,7 @@ namespace st {
 
 class File_browser_state : public State {
 public:
-    File_browser_state(Supertyper& context) noexcept;
+    explicit File_browser_state(Supertyper& context) noexcept;
     ~File_browser_state() noexcept override = default;
 
     void run() noexcept final;

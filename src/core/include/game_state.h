@@ -17,7 +17,7 @@ namespace st {
 
 class Game_state : public State {
 public:
-    Game_state(Supertyper& context) noexcept;
+    explicit Game_state(Supertyper& context) noexcept;
     ~Game_state() noexcept override = default;
 
     void run() noexcept final;

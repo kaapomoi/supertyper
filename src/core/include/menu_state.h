@@ -17,7 +17,7 @@ class Menu_state : public State {
 public:
     enum class Menu_option : std::uint32_t { play = 0, words, about, quit };
 
-    Menu_state(Supertyper& context) noexcept;
+    explicit Menu_state(Supertyper& context) noexcept;
     ~Menu_state() noexcept override = default;
 
     void run() noexcept final;

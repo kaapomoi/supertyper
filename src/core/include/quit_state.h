@@ -15,7 +15,7 @@ namespace st {
 
 class Quit_state : public State {
 public:
-    Quit_state(Supertyper& context) noexcept;
+    explicit Quit_state(Supertyper& context) noexcept;
     ~Quit_state() noexcept override = default;
 
     void run() noexcept final;
