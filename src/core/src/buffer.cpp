@@ -40,10 +40,10 @@ std::vector<std::size_t> Buffer::check(Buffer const& other) noexcept
 
 std::size_t Buffer::clear() noexcept
 {
-    auto size = m_data.size();
+    auto buffer_size = m_data.size();
     m_data.clear();
 
-    return size;
+    return buffer_size;
 }
 
 std::string const& Buffer::data() noexcept
