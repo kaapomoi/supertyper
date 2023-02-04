@@ -21,11 +21,16 @@ public:
     void run() noexcept final;
 
 private:
+    struct Word_file {
+        std::string const name;
+        std::uint32_t word_lines;
+    };
+
     void handle_input(std::int32_t const c) noexcept;
 
     void handle_menu_choices() noexcept;
 
-    std::vector<std::string> m_word_files;
+    std::vector<Word_file> m_word_files;
 
     bool m_keep_running{true};
 
