@@ -88,7 +88,6 @@ void Game_state::run() noexcept
         }
 
         m_type_window << cc::format(1, 2)("{w}", m_typing_buffer.data());
-        m_type_window << cc::format(1, m_box_width - (m_box_pad * 2))("{w}", m_score);
         m_type_window.move_cursor(1, m_typing_buffer.size() + m_box_pad);
 
         c = m_type_window.get_char();
